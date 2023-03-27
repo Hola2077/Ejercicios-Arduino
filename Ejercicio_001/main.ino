@@ -10,9 +10,9 @@ DHT dht(DHTPIN, DHTTYPE);
 ///////////////////////////////////////////////////////////////////
 #define WIFI_SSID "#####"
 #define WIFI_PASSWORD "#####"
-#define BOT_TOKEN "#########" // el token se octiene en  (Botfather)
+#define BOT_TOKEN "#########" // el token se obtiene en (Botfather)
 //////////////////////////////////////////////////////////////////
-const unsigned long BOT_MTBS = 1000; // tienpo de escaneo de mensajes
+const unsigned long BOT_MTBS = 1000; // tiempo de escaneo de los mensajes entrantes
 WiFiClientSecure secured_client;
 UniversalTelegramBot bot(BOT_TOKEN, secured_client); // pasando datos hacia libreria
 unsigned long bot_lasttime;          // última vez que se realizó el escaneo de mensajes
@@ -110,10 +110,10 @@ void setup()
   }
   Serial.println(now);
 }
-/////////////////////////////////////////////////////////////////
-//////////loop para leer mensajes/////////
-////se deve mejorar ya que el el esp 32 entra en reposo y deja de funcionar////
-///////no se aprobecha todos los nucleos del esp32/////
+//////////////////////////////////////////////////////////////////////////////////
+////////////////loop para leer mensajes///////////////////////////////////////////
+///////se deve mejorar ya que el el esp 32 entra en reposo y deja de funcionar////
+///////no se aprobecha todos los nucleos del esp32////////////////////////////////
 void loop()
 {
   if (millis() - bot_lasttime > BOT_MTBS) //a la espera de mensajes
@@ -123,7 +123,7 @@ void loop()
     while (numNuevosMensajes) 
     {
       Serial.println("got response"); //solo es para ver si contesta 
-      manejarNuevosMensajes (numNuevosMensajes); //llamada ala funcion
+      manejarNuevosMensajes (numNuevosMensajes); //llamada a la funcion
       numNuevosMensajes = bot.getUpdates(bot.last_message_received + 1); 
     }
     bot_lasttime = millis();
