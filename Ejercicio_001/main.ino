@@ -57,7 +57,7 @@ void manejarNuevosMensajes (int numNuevosMensajes)
     }
 
     if (text == "/hola"){
-      String hola = (String) dht.readTemperature(); //octeniendo datos del sensor 
+      String hola = (String) dht.readTemperature(); //obteniendo datos del sensor
       hola += " Grados Centígrados."; 
       bot.sendMessage(chat_id, hola);
 
@@ -116,7 +116,7 @@ void setup()
 ///////no se aprobecha todos los nucleos del esp32/////
 void loop()
 {
-  if (millis() - bot_lasttime > BOT_MTBS) //ala espera de mensajes
+  if (millis() - bot_lasttime > BOT_MTBS) //a la espera de mensajes
   {
     int numNuevosMensajes = bot.getUpdates(bot.last_message_received + 1); 
 
